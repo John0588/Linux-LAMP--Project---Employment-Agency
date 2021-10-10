@@ -1,16 +1,29 @@
 <?php include './includes/head.php' ?>
 <?php include './includes/header.php' ?>
 
+<?php 
+if(isset ($_POST["submit"])) {
+    $fName = $_POST["fName"];
+    $work = $_POST["work"];
+    $availibility = $_POST["availibility"];
+    $vehicle = $_POST["vehicle"];
+}
+
+?>
+
 <main>
     <section id="job">
         <div class="job">
+        <h1> Thank You <?php echo $fName; ?> for sending your application. </h1>
             <div class="leftJob">
                 <h1><b style="color: red;">Job Seeker</b> <br>Application!</h1>
-                <form action="" method="post">
-                    <p><input class="jobInput" type="text" placeholder=" Your FullName: " required /></p>
-                    <p><input class="jobInput" type="text" placeholder=" What is your Address? " required /></p>
+                <form action="./job.php" method="post">
+                    <p><input class="jobInput" name="fName" type="text" placeholder=" Your FullName: " required /></p>
+                    <hr>
+                    <p><input class="jobInput" name="address" type="text" placeholder=" What is your Address? " required /></p>
+                    <hr>
                     <p>
-                        <select class="jobInput" type="text"> 
+                        <select class="jobInput" name="work" type="text"> 
                             <option value=""> What type of work are you looking?</option>
                             <option value="">General Labour Light</option>
                             <option value="">Millwright</option>
@@ -25,22 +38,25 @@
                             <option value="">Machine Operator</option>
                         </select>
                     </p>
+                    <hr>
                     <p>
-                        <select class="jobInput" type="text"> 
+                        <select class="jobInput" name="availibility" type="text"> 
                             <option value=""> Please tell us your availibility: </option>
                             <option value="morning">Morning Shift: 7:00 AM - 4:00 PM</option>
                             <option value="afternoon">Afternoon Shift: 4:00 PM - 1:00 AM</option>
                             <option value="evening">Evening Shift: 1:00 AM - 10:00 AM</option>
                         </select>
                     </p>
+                    <hr>
                     <p>
-                        <select class="jobInput" type="text"> 
+                        <select class="jobInput" name="vehicle" type="text"> 
                             <option value=""> Do you have your own vehicle? </option>
                             <option value="yes">Yes</option>
                             <option value="no">No</option>
                         </select>
                     </p>
-                    <p><a><input class="btnJob" value="CONTINUE" /></a></p>
+                    <hr>
+                    <p><a><input type="submit" name="submit" class="btnJob" value="CONTINUE" /></a></p>
                 </form>
             </div>
             <div class="rightJob">
